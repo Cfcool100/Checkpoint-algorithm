@@ -2,19 +2,6 @@ ALGORITHM a date
 VAR
     date: INTEGER := 0;
     day, mouth, years :=INTEGER;
-    jan, feb, mar, apr, may, jun, jul, Aug, sep, oct, nov, dec := STRING;
-    jan := 1 
-    feb := 2 
-    mar := 3 
-    apr := 4 
-    may := 5 
-    jun := 6 
-    jul := 7 
-    Aug := 8 
-    sep := 9 
-    oct := 10
-    nov := 11
-    dec := 12 
 BEGIN
     Write(enter sixe numbers);
     Read(date);
