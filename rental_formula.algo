@@ -8,6 +8,9 @@ VAR
     ins : FLOAT := 0.3;
     cost_km: INTEGER := 0;
     cost_day : INTEGER := 0;
+    cost_km_1 := INTEGER;
+    cost_km_2 := INTEGER;
+    cost_km_3 := INTEGER;
     nb_km := INTEGER;
     nb_days := INTEGER;
 BEGIN
@@ -24,15 +27,15 @@ BEGIN
     cost_day := (nb_days * p_d) + (ins * nb_days);
 
     IF (nb_km <= 100) THEN
-        Write(cost_km_1);
+        Write('cost_km =', ' ', cost_km_1 + cost_km_1 * vat);
     ELSE_IF (nb_km >= 101 OR nb_km <= 1000) THEN
-        Write(cost_km_2);
+        Write('cost_km =', ' ', cost_km_2 + cost_km_2 * vat);
     ELSE
-        Write(cost_km_3);
-    END_IF
-    IF (nb_days <> 0) THEN
-        Write(cost_day)
-    END_IF
+        Write('cost_km =', ' ', cost_km_3 + cost_km_3 * vat);
+    
+        IF (nb_day <> 0) THEN
+            Write('cost_day:', ' ', cost_day)
+        END_IF
 
     IF (nb_km > nb_days) THEN
         Write('nb_days is the best formula for you .')
