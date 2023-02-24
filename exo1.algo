@@ -1,0 +1,14 @@
+ALGORITHM INTEGER
+VAR
+    x, y, z :=INTEGER;
+    t:= INTEGER;
+BEGIN
+    Read(x);
+    Read(y);
+    Read(z);
+    t:= z;
+    z:= y;
+    y:= x;
+    x:= t;
+    write(x, y, z);
+END

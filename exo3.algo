@@ -1,0 +1,54 @@
+ALGORITHM a date
+VAR
+    date: INTEGER := 0;
+    day, mouth, years :=INTEGER;
+    jan, feb, mar, apr, may, jun, jul, Aug, sep, oct, nov, dec := STRING;
+    jan := 1 
+    feb := 2 
+    mar := 3 
+    apr := 4 
+    may := 5 
+    jun := 6 
+    jul := 7 
+    Aug := 8 
+    sep := 9 
+    oct := 10
+    nov := 11
+    dec := 12 
+BEGIN
+    Write(enter sixe numbers);
+    Read(date);
+
+    years := date % 100;
+    mouth := (date / 100) % 100;
+    day := (date / 10000) % 100;
+
+    SWITCH (mouth) DO
+        case 1 : Write(jan);
+        BREAK;
+        case 2 : Write(feb);
+        BREAK;
+        case 3 : Write(mar);
+        BREAK;
+        case 4 : Write(apr);
+        BREAK;
+        case 5 : Write(may);
+        BREAK;
+        case 6 : Write(jun);
+        BREAK;
+        case 7 : Write(jul);
+        BREAK;
+        case 8 : Write(aug);
+        BREAK;
+        case 9 : Write(sep);
+        BREAK;
+        case 10 : Write(oct);
+        BREAK;
+        case 11 : Write(nov);
+        BREAK;
+        case 12 : Write(dec);
+        BREAK;
+        default : Write(error)
+    END_SWITCH
+    Write('day:', day, ' ', 'mouth:', mouth, ' ', 'years', years);
+END
