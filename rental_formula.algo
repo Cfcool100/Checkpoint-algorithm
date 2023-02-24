@@ -6,11 +6,11 @@ VAR
     p_d : INTEGER := 100;
     vat : FLOAT := 0.18;
     ins : FLOAT := 0.3;
-    cost_km: INTEGER := 0;
-    cost_day : INTEGER := 0;
+    cost_km: INTEGER; // cette seule variable suffitn et pas besoin de l'initialiser à 0
+    cost_day : INTEGER;
     cost_km_1 := INTEGER;
     cost_km_2 := INTEGER;
-    cost_km_3 := INTEGER;
+    cost_km_3 := INTEGER; 
     nb_km := INTEGER;
     nb_days := INTEGER;
 BEGIN
@@ -20,24 +20,34 @@ BEGIN
     Write(How many daily do you want to do with the car?);
     Read(nb_days);
 
-    cost_km_1 := (nb_km * r1) +(nb_days * ins);
-    cost_km_2 := (100 * r1) + (nb_km - 100)*r2 + (nb_days * ins);
-    cost_km_3 := (100 * r1) + (900 * r2) + (nb_km - 1000)*r2 + (nb_days * ins);
+    cost_km_1 := (nb_km * r1) +(nb_days * ins); // à enlever 
+    cost_km_2 := (100 * r1) + (nb_km - 100)*r2 + (nb_days * ins); // à enlever
+    cost_km_3 := (100 * r1) + (900 * r2) + (nb_km - 1000)*r2 + (nb_days * ins); // à enlever
 
     cost_day := (nb_days * p_d) + (ins * nb_days);
 
     IF (nb_km <= 100) THEN
-        Write('cost_km =', ' ', cost_km_1 + cost_km_1 * vat);
+        cost_km := (nb_km * r1) +(nb_days * ins); //caculer le cout avec l'assurance
+        cost_km := cost_km(1+ vat); //ajouter la tva
+        // Write('cost_km =', ' ', cost_km_1 + cost_km_1 * vat); trop tot, on fini les calculs avant l'affichage
     ELSE_IF (nb_km >= 101 OR nb_km <= 1000) THEN
-        Write('cost_km =', ' ', cost_km_2 + cost_km_2 * vat);
+        cost_km := (100 * r1) + (nb_km - 100)*r2 + (nb_days * ins);
+        cost_km := cost_km(1+ vat);
+        // Write('cost_km =', ' ', cost_km_2 + cost_km_2 * vat);
     ELSE
-        Write('cost_km =', ' ', cost_km_3 + cost_km_3 * vat);
-    
-        IF (nb_day <> 0) THEN
-            Write('cost_day:', ' ', cost_day)
-        END_IF
+        cost_km := (100 * r1) + (900 * r2) + (nb_km - 1000)*r2 + (nb_days * ins);
+        cost_km := cost_km(1+ vat);
+        // Write('cost_km =', ' ', cost_km_3 + cost_km_3 * vat);
+    END_IF // fermer le if ici
 
-    IF (nb_km > nb_days) THEN
+    // IF (nb_day <> 0) THEN
+    //     Write('cost_day:', ' ', cost_day)
+    // END_IF
+
+    cost_day := nb_days*p_d + (nb_days * ins) // le cout total jour
+    cost_day := cost_day(1+ vat); //ajout tva
+
+    IF (nb_km > nb_days) THEN // ici la condition doit etre sur les cost pas les nb
         Write('nb_days is the best formula for you .')
     ELSE
         Write('nb_km is the best formula for you .')
