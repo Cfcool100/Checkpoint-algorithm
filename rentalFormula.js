@@ -12,14 +12,14 @@ var nb_days = 0;
 
 if (nb_km <= 100) {
     cost_km = nb_km *R1 + nb_days * INS;
-    cost_km *= 1+ VAT
+    console.log(cost_km *= 1+ VAT);
 } else{
     if (nb_km >= 101 || nb_km <= 1000) {
         cost_km = (100 * R1) + (nb_km - 100) * R2 + (nb_days * INS);
-        cost_km *= 1 + VAT;
+        console.log(cost_km *= 1 + VAT);
     }else{
         cost_km = (100 * R1) + (900 * R2) + (nb_km - 1000) * R2 + (nb_days * INS);
-        cost_km *= 1 + VAT;
+        console.log(cost_km *= 1 + VAT);
     }
 }
 
