@@ -1,10 +1,10 @@
-var x = "eau";
-var y = "lait";
-var z = "coce";
-
-var t = z;
-var z = y;
-var y = x; 
-var x = t;
-
-console.log(x,y,z);
+function permutation(x, y, z) {
+    var t;
+    
+    t = z;
+    z = y;
+    y = x;
+    x = t;
+    console.log(x,y,z);
+}
+permutation(05, 03, 09);
